@@ -148,6 +148,7 @@
     <Compile Include="NonTypedValueReaderFactory.cs" />
     <Compile Include="NonTypedValueReaderFactoryFactory.cs" />
     <Compile Include="Query\Annotations\FromSqlQueryAnnotation.cs" />
+    <Compile Include="Query\Annotations\UseDatabaseNullSemanticsQueryAnnotation.cs" />
     <Compile Include="Query\AsyncQueryingEnumerable.cs" />
     <Compile Include="Query\AsyncQueryMethodProvider.cs" />
     <Compile Include="Query\CommandBuilder.cs" />

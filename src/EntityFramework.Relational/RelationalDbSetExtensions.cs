@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using Microsoft.Data.Entity.Query;
 using Microsoft.Data.Entity.Relational.Query.Annotations;
 using Microsoft.Data.Entity.Utilities;
+using Microsoft.Data.Entity.Query.Annotations;
 
 // ReSharper disable once CheckNamespace
 
@@ -30,6 +31,13 @@ namespace Microsoft.Data.Entity
             Check.NotNull(parameters, nameof(parameters));
 
             return dbSet.AnnotateQuery(new FromSqlQueryAnnotation(sql, parameters));
+        }
+
+        public static IQueryable<TEntity> UseDatabaseNullSemantics<TEntity>([NotNull] this DbSet<TEntity> dbSet) where TEntity : class
+        {
+            Check.NotNull(dbSet, nameof(dbSet));
+
+            return dbSet.AnnotateQuery(new UseDatabaseNullSemanticsQueryAnnotation());
         }
     }
 }
